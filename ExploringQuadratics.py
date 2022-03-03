@@ -3,9 +3,9 @@
 def quadratic_e():
     print("Welcome to 'Exploring Quadratics'. Given the quadratic in standard form, ax^2 + bx + c = 0,"
           " provide 'a', 'b', and 'c' so we can help you with your quadratic!")
-    a = int(input("a = "))
-    b = int(input("b = "))
-    c = int(input("c = "))
+    a = float(input("a = "))
+    b = float(input("b = "))
+    c = float(input("c = "))
 
     while a != 0:
         menu = input("\nMENU:\ntype '1' to solve for x\ntype '2' to get help with graphing\n"
@@ -57,11 +57,11 @@ def quadratic_e():
         # intercepts
         elif menu == '4':
             if discriminant > 0:
-                print(f"x-intercept(s) = ({solution_1},0) and ({solution_2},0)")
+                print(f"x-intercept(s) = ({solution_1},0) and ({solution_2},0) and y-intercept = (0,{c})")
             elif discriminant == 0:
-                print(f"x-intercept = ({solution_1},0)")
+                print(f"x-intercept = ({solution_1},0) and y-intercept = (0,{c})")
             else:
-                print("There are no x-intercepts.")
+                print("There are no x-intercepts. y-intercept = (0,{c})")
         # roots
         elif menu == '5':
             print(
@@ -100,8 +100,8 @@ def quadratic_e():
             exit()
         # other
         else:
-            print("Please type a number in the menu.")
-
+            print("Please type a number in the menu. Try again!")
+            quadratic_e()
     else:
         option = input("This is not a quadratic. The value of 'a' should not be zero.\nType '1' to try again.\n"
                        "Type '2' to quit 'Exploring Quadratics'.\n")
